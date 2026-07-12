@@ -9,8 +9,13 @@ services:
     volumes:
       - ../../data/tailscale:/var/lib/tailscale
       - /dev/net/tun:/dev/net/tun
-    network_mode: host
+    networks:
+      - tailscale
     cap_add:
       - NET_ADMIN
       - SYS_MODULE
     restart: unless-stopped
+networks:
+  tailscale:
+    name: tailscale
+    driver: bridge

@@ -11,3 +11,8 @@ services:
       - .env
     environment:
       - SFTP_USERS=${SFTP_USER}:${SFTP_PASSWORD}:1001
+    networks:
+      - tailscale
+networks:
+  tailscale:
+    external: true
