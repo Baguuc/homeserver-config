@@ -1,0 +1,13 @@
+services:
+  sftp:
+    image: atmoz/sftp
+    container_name: sftp
+    restart: unless-stopped
+    ports:
+      - "2222:22"
+    volumes:
+      - ../../data/sftp:/home/baguuc/data
+    env_file:
+      - .env
+    environment:
+      - SFTP_USERS=${SFTP_USER}:${SFTP_PASSWORD}:1001
