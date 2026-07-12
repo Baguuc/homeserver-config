@@ -1,0 +1,21 @@
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflare-tunnel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate --config /etc/cloudflared/config.yml run
+    volumes:
+      - ./configs:/etc/cloudflared:ro
+    networks:
+      - cloudflared
+    # Health check to ensure tunnel is ready before other services start
+    healthcheck:
+      test: ["CMD", "cloudflared", "tunnel", "ready"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  cloudflared:
+    name: cloudflared
+    driver: bridge

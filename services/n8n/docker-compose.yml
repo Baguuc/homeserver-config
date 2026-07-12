@@ -28,6 +28,9 @@ services:
       - ../../data/n8n:/home/node/.n8n
     networks:
       - postgres
+      - cloudflared
 networks:
   postgres:
+    external: true
+  cloudflared:
     external: true

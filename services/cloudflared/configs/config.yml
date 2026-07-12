@@ -1,0 +1,8 @@
+tunnel: 3ab23732-e065-40a9-8813-290898fdd435
+credentials-file: /etc/cloudflared/tunnel-credentials.json
+
+ingress:
+  - hostname: n8n.jzuk.pl
+    service: http://n8n:5678
+
+  - service: http_status:404
