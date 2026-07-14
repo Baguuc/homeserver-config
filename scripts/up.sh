@@ -9,3 +9,4 @@ docker compose -f services/cloudflared/docker-compose.yml up -d
 # start services
 docker compose -f services/sftp/docker-compose.yml up -d
 docker compose -f services/n8n/docker-compose.yml up -d
+docker compose -f services/forgejo/docker-compose.yml up -d

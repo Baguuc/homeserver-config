@@ -4,5 +4,6 @@ credentials-file: /etc/cloudflared/tunnel-credentials.json
 ingress:
   - hostname: n8n.jzuk.pl
     service: http://n8n:5678
-
+  - hostname: git.jzuk.pl
+    service: http://forgejo:3000
   - service: http_status:404
