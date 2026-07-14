@@ -7,12 +7,6 @@ services:
       - "5678:5678"
     environment:
       TZ: ${TZ}
-      DB_TYPE: postgresdb
-      DB_POSTGRESDB_HOST: postgres
-      DB_POSTGRESDB_PORT: 5432
-      DB_POSTGRESDB_DATABASE: ${POSTGRES_DB}
-      DB_POSTGRESDB_USER: ${POSTGRES_USER}
-      DB_POSTGRESDB_PASSWORD: ${POSTGRES_PASSWORD}
 
       N8N_BASIC_AUTH_ACTIVE: true
       N8N_BASIC_AUTH_USER: ${N8N_USER}
@@ -27,10 +21,7 @@ services:
     volumes:
       - /data/n8n:/home/node/.n8n
     networks:
-      - postgres
       - cloudflared
 networks:
-  postgres:
-    external: true
   cloudflared:
     external: true
