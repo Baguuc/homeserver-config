@@ -6,7 +6,7 @@ services:
     ports:
       - "2222:22"
     volumes:
-      - ../../data/sftp:/home/baguuc/data
+      - /data/sftp:/home/baguuc/data
     env_file:
       - .env
     environment:

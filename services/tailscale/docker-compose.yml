@@ -7,7 +7,7 @@ services:
       - TS_AUTHKEY=${TS_AUTHKEY}
       - TS_STATE_DIR=/var/lib/tailscale
     volumes:
-      - ../../data/tailscale:/var/lib/tailscale
+      - /data/tailscale:/var/lib/tailscale
       - /dev/net/tun:/dev/net/tun
     networks:
       - tailscale
